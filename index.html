@@ -113,6 +113,15 @@
             }
           )
       }
+      
+      /** Termina la sesión. */
+      async function terminaSesión() {
+        try {
+          await auth.signOut();
+        } catch (e) {
+          procesaError(e);
+        }
+      }
 
       /** Procesa un error. Muestra el objeto en la consola y un cuadro de
        * alerta con el mensaje.
@@ -121,7 +130,7 @@
         console.log(e);
         alert(e.message);
       }
-
+   
       /** Map que contiene el texto de escape de los caracteres especiales de
        * HTML.
        * @type {Readonly<Map<string, string>> } */
